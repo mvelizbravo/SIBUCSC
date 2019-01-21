@@ -8,7 +8,6 @@
     <string name="toast_refresh">Actualizado</string>
     <string name="toolbar_title">SIBUCSC Móvil</string>
     <string name="volley_error_conexion">No es posible conectarse con el servidor.</string>
-    <string name="login_url">http://dev.sibucsc.cl/usuarios/json_appusuario</string>
 
     <!-- Main -->
     <string name="btn_perfil">Bienvenido\nPATERNO MATERNO, PRIMER SEGUNDO</string>
@@ -19,12 +18,10 @@
     <string name="btn_extravio">Extravío</string>
     <string name="btn_catalogo">Catálogo</string>
     <string name="btn_logout">Cerrar sesión</string>
-    <string name="main_url">http://ucsc.cl</string>
     <string name="main_toast">Abriendo UCSC…</string>
 
     <!-- 2. Salas tesistas -->
     <string name="tes_title">Salas de tesistas</string>
-    <string name="tes_url">http://dev.sibucsc.cl/usuarios/json_tesista</string>
     <string name="tes_btn_sala">Sala</string>
     <string name="tes_btn_fecha">Fecha</string>
     <string name="tes_seleccion">Seleccione una sala y fecha.</string>
@@ -32,7 +29,6 @@
 
     <!-- 3. Prestamo notebook -->
     <string name="not_title">Prestamo de notebooks</string>
-    <string name="not_url">http://dev.sibucsc.cl/usuarios/json_notebook/</string>
 
     <!-- 4. Sanciones alumnos -->
     <string name="san_title">Estado de sanciones</string>
@@ -52,6 +48,5 @@
     <string name="ext_toast">Abriendo correo…</string>
 
     <!-- 6. Abrir catálogo -->
-    <string name="catalogo_url">http://catalogo.ucsc.cl</string>
     <string name="catalogo_toast">Abriendo catálogo…</string>
 </resources>

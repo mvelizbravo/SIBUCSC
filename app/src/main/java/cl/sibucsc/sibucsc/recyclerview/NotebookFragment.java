@@ -48,6 +48,7 @@ import cl.sibucsc.sibucsc.recyclerview.decoration.SimpleDividerItemDecoration;
 public class NotebookFragment extends Fragment {
 
     private static final String TAG = "NotebookPrestamo";
+    private static final String URL_BASE = "http://dev.sibucsc.cl/usuarios/json_notebook/";
 
     // Numero de columnas y valor por defecto
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -164,7 +165,7 @@ public class NotebookFragment extends Fragment {
     private void requestJsonObject() {
         // Iniciar REQUEST
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = getString(R.string.not_url);
+        String url = URL_BASE;
         Log.d(TAG, "Inicio de Query: " + url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

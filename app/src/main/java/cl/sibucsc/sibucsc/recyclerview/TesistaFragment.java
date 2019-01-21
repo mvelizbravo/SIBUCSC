@@ -56,6 +56,7 @@ import cl.sibucsc.sibucsc.recyclerview.decoration.SimpleDividerItemDecoration;
 public class TesistaFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = "TesistaPrestamo";
+    private static final String URL_BASE = "http://dev.sibucsc.cl/usuarios/json_tesista";
 
     // Numero de columnas y valor por defecto
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -272,7 +273,7 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
 
     // Generar URL para la Query
     private String obtenerURL(String a, String b) {
-        return getString(R.string.tes_url) + "/" + a + "/" + b + "/";
+        return URL_BASE + "/" + a + "/" + b + "/";
     }
 
     // Obtener fecha en formato valido para la URL

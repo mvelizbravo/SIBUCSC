@@ -30,8 +30,8 @@ import cl.sibucsc.sibucsc.model.Alumno;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActividad";
+    private static final String URL_BASE = "http://dev.sibucsc.cl/usuarios/json_appusuario";
     public static final String EXTRA_MESSAGE = "ALUMNO";
-    public static final String URL_BASE = String.valueOf(R.string.login_url);
 
     private EditText mUser; // Campo de texto donde va el rut
     private Button mLogin; // Boton para inicio de sesion

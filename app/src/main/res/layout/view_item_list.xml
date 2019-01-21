@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
-        android:maxHeight="64dp"
+        android:maxHeight="@dimen/icon_height_tall"
         android:scaleType="fitCenter"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
@@ -21,11 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/referencia"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/spacing_normal"
         android:layout_toEndOf="@+id/referencia"
         android:text="Titulo"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_huge"
         android:textStyle="bold" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_alignParentRight="true"
         android:text="Estado"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp" />
+        android:textSize="@dimen/font_large" />
 
     <TextView
         android:id="@+id/subtitulo"
@@ -46,9 +46,9 @@
         android:layout_below="@+id/titulo"
         android:layout_alignStart="@+id/titulo"
         android:layout_alignLeft="@+id/titulo"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:text="Subtitulo"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp" />
+        android:textSize="@dimen/font_normal" />
 
 </RelativeLayout>

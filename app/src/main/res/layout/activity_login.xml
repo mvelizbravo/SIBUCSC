@@ -6,6 +6,8 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+    <!--TODO: 21-01-19 Crear interfaz menu de login. -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

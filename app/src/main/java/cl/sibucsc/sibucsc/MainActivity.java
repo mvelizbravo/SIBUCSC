@@ -23,6 +23,8 @@ import cl.sibucsc.sibucsc.model.Alumno;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "PrincipalActividad";
+    private static final String URL_UCSC = "http://ucsc.cl";
+    private static final String URL_CATALOGO = "http://catalogo.ucsc.cl";
     public static final String PREF_NAME = "Principal";
 
     private Button mPerfil; // Campo de texto para el rut
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     /* 6. Abrir Catalogo: Abre en el navegador la url definida en urlCatalogo. */
     public void abrirCatalogo(View view) {
         Toast.makeText(this, R.string.catalogo_toast, Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.catalogo_url)));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_CATALOGO));
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: CATALOGO");
     }
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     /* 7. Abrir UCSC: Abre en el navegador la url definida en urlCatalogo. */
     public void abrirUCSC(View view) {
         Toast.makeText(this, R.string.main_toast, Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.main_url)));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_UCSC));
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: UCSC");
     }

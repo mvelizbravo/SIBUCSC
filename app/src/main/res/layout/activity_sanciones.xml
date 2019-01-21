@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".SancionesActivity">
 
+    <!--TODO: 21-01-19 Decidir si realizar esto. -->
+
     <!-- Incluir Toolbar -->
     <include
         android:id="@+id/toolbar"
