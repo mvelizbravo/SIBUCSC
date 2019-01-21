@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cl.sibucsc.sibucsc.R;
-import cl.sibucsc.sibucsc.model.Tesista;
-import cl.sibucsc.sibucsc.recyclerview.TesistaFragment.TesistaListener;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import cl.sibucsc.sibucsc.R;
+import cl.sibucsc.sibucsc.model.Tesista;
+import cl.sibucsc.sibucsc.recyclerview.TesistaFragment.TesistaListener;
 
 /**
  * Este {@link RecyclerView.Adapter} provee vistas a un {@link RecyclerView} con
@@ -115,7 +115,7 @@ public class TesistaAdapter extends RecyclerView.Adapter<TesistaAdapter.ViewHold
             // Item
             this.mItem = item;
             // Imagen
-            imagen.setImageResource(R.drawable.ic_tesista);
+            imagen.setImageResource(R.drawable.main_ic_tesista);
             // Titulo
             titulo.setText(item.getSala());
             titulo.setTextColor(ContextCompat.getColor(context, colorActividad));

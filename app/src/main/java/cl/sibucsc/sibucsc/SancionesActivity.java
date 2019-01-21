@@ -1,9 +1,9 @@
 package cl.sibucsc.sibucsc;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
@@ -31,7 +31,6 @@ public class SancionesActivity extends AppCompatActivity {
 
         // Sanciones
         mSanciones = (TextView) findViewById(R.id.sanciones);
-
         Intent intent = getIntent();
         String estado = intent.getStringExtra("estado");
         String sancion = intent.getStringExtra("sancion");

@@ -11,21 +11,18 @@
 
         <Spinner
             android:id="@+id/spinnerSala"
+            style="@style/SpinnerTesistas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorTory"
-            android:spinnerMode="dialog" />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnFecha"
+            style="@style/ButtonTesistas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorTory"
-            android:text="@string/tes_btn_fecha"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorTextButton" />
+            android:text="@string/tes_btn_fecha" />
     </LinearLayout>
 
     <!-- Incluir recyclerview -->

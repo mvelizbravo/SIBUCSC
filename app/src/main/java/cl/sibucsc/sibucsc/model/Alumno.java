@@ -2,6 +2,9 @@ package cl.sibucsc.sibucsc.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Persona que esta matriculada en la universidad.
+ */
 public class Alumno {
 
     @SerializedName("Nombre")

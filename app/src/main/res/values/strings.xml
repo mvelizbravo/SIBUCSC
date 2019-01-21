@@ -7,6 +7,8 @@
     <string name="text_loading">Cargando…</string>
     <string name="toast_refresh">Actualizado</string>
     <string name="toolbar_title">SIBUCSC Móvil</string>
+    <string name="volley_error_conexion">No es posible conectarse con el servidor.</string>
+    <string name="login_url">http://dev.sibucsc.cl/usuarios/json_appusuario</string>
 
     <!-- Main -->
     <string name="btn_perfil">Bienvenido\nPATERNO MATERNO, PRIMER SEGUNDO</string>
@@ -26,6 +28,7 @@
     <string name="tes_btn_sala">Sala</string>
     <string name="tes_btn_fecha">Fecha</string>
     <string name="tes_seleccion">Seleccione una sala y fecha.</string>
+    <string name="tes_error_fds">No es posible reservar una sala un fin de semana.</string>
 
     <!-- 3. Prestamo notebook -->
     <string name="not_title">Prestamo de notebooks</string>

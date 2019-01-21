@@ -4,9 +4,8 @@
     <item android:drawable="@color/colorPrimaryLight" />
     <!-- Logo -->
     <item>
-        <!-- TODO: Revisar porque la splash screen esta borroso -->
         <bitmap
             android:gravity="center"
-            android:src="@drawable/splash" />
+            android:src="@drawable/launch_splash" />
     </item>
 </layer-list>

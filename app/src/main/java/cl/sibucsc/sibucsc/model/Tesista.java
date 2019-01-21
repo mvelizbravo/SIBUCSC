@@ -2,6 +2,9 @@ package cl.sibucsc.sibucsc.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Sala que puede ser prestado a un Alumno.
+ */
 public class Tesista {
 
     @SerializedName("Sala")

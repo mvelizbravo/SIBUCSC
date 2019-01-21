@@ -24,7 +24,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,6 +63,15 @@ public class NotebookFragment extends Fragment {
     public NotebookFragment() {
     }
 
+    // Utilizado para mostrar el fragmento dinamicamente.
+    public static NotebookFragment newInstance(int columnCount) {
+        NotebookFragment fragment = new NotebookFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,15 +80,6 @@ public class NotebookFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-    }
-
-    // Utilizado para mostrar el fragmento dinamicamente.
-    public static NotebookFragment newInstance(int columnCount) {
-        NotebookFragment fragment = new NotebookFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     // Inicializa los contenidos del menu de opciones.
@@ -139,6 +138,23 @@ public class NotebookFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof NotebookListener) {
+            mListener = (NotebookListener) context;
+        } else {
+            throw new RuntimeException(context.toString() + " must implement NotebookListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
     /**
      * Funcion que permite realizar una consulta a el servidor de la biblioteca.
      * <p>
@@ -159,8 +175,7 @@ public class NotebookFragment extends Fragment {
                 // Serializacion desde JSON
                 JSONArray jsonArray;
                 List<Notebook> notebooks = new ArrayList<Notebook>();
-                GsonBuilder builder = new GsonBuilder();
-                Gson mGson = builder.create();
+                Gson mGson = new Gson();
                 try {
                     jsonArray = new JSONArray(response);
                     notebooks = Arrays.asList(mGson.fromJson(jsonArray.get(0).toString(), Notebook[].class));
@@ -198,7 +213,7 @@ public class NotebookFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d(TAG, "Error " + error.getMessage());
-                mBanner.setText("No es posible conectarse con el servidor.");
+                mBanner.setText(R.string.volley_error_conexion);
             }
         });
         queue.add(stringRequest);
@@ -214,23 +229,6 @@ public class NotebookFragment extends Fragment {
         } else {
             mBanner.setText("No hay notebooks disponibles.");
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        if (context instanceof NotebookListener) {
-            mListener = (NotebookListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + " must implement NotebookListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     /**

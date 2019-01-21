@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="button_radius_large">4dp</dimen>
+    <dimen name="button_radius">5dp</dimen>
+
+    <!--spacing between views-->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_huge">95dp</dimen>
+
+    <!--font sizes-->
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_large">16sp</dimen>
 </resources>

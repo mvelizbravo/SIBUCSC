@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <!-- Incluir Toolbar -->
     <include
         android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar" />
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,18 +24,13 @@
 
             <Button
                 android:id="@+id/btnPerfil"
+                style="@style/ButtonPerfil"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="60dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:clickable="false"
                 android:text="@string/btn_perfil"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="@color/colorTextButton"
-                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -126,43 +120,34 @@
 
             <Button
                 android:id="@+id/btnLogout"
+                style="@style/ButtonLogout"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="95dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="95dp"
-                android:background="@color/colorPrimary"
                 android:text="@string/btn_logout"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/colorTextButton"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnExtravio" />
 
             <ImageButton
+                android:id="@+id/btnLogo"
+                style="@style/ImageButtonLogo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="95dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="95dp"
                 android:layout_marginBottom="8dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/ripple_effect"
-                android:clickable="false"
                 android:contentDescription="@string/desc_logo"
                 android:onClick="abrirUCSC"
-                android:scaleType="fitCenter"
                 android:src="@drawable/ucsc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

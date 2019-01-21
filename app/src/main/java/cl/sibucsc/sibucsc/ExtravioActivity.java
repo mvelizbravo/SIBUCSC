@@ -38,7 +38,7 @@ public class ExtravioActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Boton envio de formulario
-        // TODO: Validaciones.
+        // TODO: 21-01-19 Validaciones formulario
         ((Button) findViewById(R.id.btnEnviar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

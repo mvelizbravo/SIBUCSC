@@ -2,6 +2,9 @@ package cl.sibucsc.sibucsc.model;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Item que puede ser prestado en la biblioteca.
+ */
 public class Notebook {
 
     @SerializedName("Copia")

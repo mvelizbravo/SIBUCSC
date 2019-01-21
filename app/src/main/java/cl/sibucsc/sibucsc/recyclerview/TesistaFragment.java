@@ -31,13 +31,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.text.DateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -77,8 +75,30 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
     private String a; // Auxiliar
     private String b; // Auxiliar
 
+    // Listener que actua cuando se ha seleccionado una fecha en el calendario.
+    private DatePickerDialog.OnDateSetListener onDate = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(year, month, day);
+            String aux = DateFormat.getDateInstance().format(calendar.getTime());
+            mFecha.setText(aux);
+            b = fechaURL(year, month, day);
+            Log.i(TAG, "Fecha: " + b);
+            requestJsonObject();
+        }
+    };
 
     public TesistaFragment() {
+    }
+
+    // Utilizado para mostrar el fragmento dinamicamente.
+    public static TesistaFragment newInstance(int columnCount) {
+        TesistaFragment fragment = new TesistaFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -89,15 +109,6 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-    }
-
-    // Utilizado para mostrar el fragmento dinamicamente.
-    public static TesistaFragment newInstance(int columnCount) {
-        TesistaFragment fragment = new TesistaFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     // Inicializa los contenidos del menu de opciones.
@@ -176,82 +187,6 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
         return view;
     }
 
-    /**
-     * Funcion que permite realizar una consulta a el servidor de la biblioteca.
-     * <p>
-     * Tiene como objetivo realizar la REQUEST, la lectura del JSON, la serializacion a
-     * un {@link List<Tesista>} y la asignación al adaptador del {@link RecyclerView}
-     */
-    private void requestJsonObject() {
-        // Iniciar REQUEST
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = obtenerURL(a, b);
-        Log.d(TAG, "Inicio de Query: " + url);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Respuesta: " + response);
-
-                // Serializacion desde JSON
-                JSONArray jsonArray;
-                List<Tesista> salas = new ArrayList<Tesista>();
-                GsonBuilder builder = new GsonBuilder();
-                Gson mGson = builder.create();
-
-                try {
-                    jsonArray = new JSONArray(response);
-                    salas = Arrays.asList(mGson.fromJson(jsonArray.get(0).toString(), Tesista[].class));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Log.d(TAG, "Salas: " + salas.toString());
-
-                // Define el adaptador del RecyclerView.
-                mAdapter = new TesistaAdapter(getContext(), salas, mListener);
-                mRecyclerView.setAdapter(mAdapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "Error " + error.getMessage());
-                mBanner.setText("No es posible conectarse con el servidor.");
-            }
-        });
-        queue.add(stringRequest);
-    }
-
-    // Generar URL para la Query
-    private String obtenerURL(String a, String b) {
-        return getString(R.string.tes_url) + "/" + a + "/" + b + "/";
-    }
-
-    // Obtener fecha en formato valido para la URL
-    private String fechaURL(int year, int month, int day) {
-        month++;
-        return Integer.toString(year) + String.format("%02d", month) + String.format("%02d", day);
-    }
-
-    // Abre el calendario para seleccionar una fecha.
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
-    }
-
-    // Listener que actua cuando se ha seleccionado una fecha en el calendario.
-    DatePickerDialog.OnDateSetListener onDate = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(year, month, day);
-            String aux = DateFormat.getDateInstance().format(calendar.getTime());
-            mFecha.setText(aux);
-            b = fechaURL(year, month, day);
-            Log.i(TAG, "Fecha: " + b);
-            requestJsonObject();
-        }
-    };
-
     // Listener para el spinner
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -280,6 +215,76 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    /**
+     * Funcion que permite realizar una consulta a el servidor de la biblioteca.
+     * <p>
+     * Tiene como objetivo realizar la REQUEST, la lectura del JSON, la serializacion a
+     * un {@link List<Tesista>} y la asignación al adaptador del {@link RecyclerView}
+     */
+    private void requestJsonObject() {
+        // Iniciar REQUEST
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        String url = obtenerURL(a, b);
+        Log.d(TAG, "Inicio de Query: " + url);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Respuesta: " + response);
+                mBanner.setText(R.string.tes_seleccion);
+
+                // Serializacion desde JSON
+                JSONArray jsonArray;
+                List<Tesista> salas = new ArrayList<Tesista>();
+                Gson mGson = new Gson();
+
+                try {
+                    jsonArray = new JSONArray(response);
+                    salas = Arrays.asList(mGson.fromJson(jsonArray.get(0).toString(), Tesista[].class));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG, "Salas: " + salas.toString());
+
+                // Selecciona una fecha de fin de semana
+                if (response.equals("[[{\"Estado\": \"No se encontraron bloques para la fecha especificada\"}]]")) {
+                    Log.d(TAG, "Se ha seleccionado un fin de semana.");
+                    mBanner.setText(R.string.tes_error_fds);
+                    salas = new ArrayList<>();
+                    salas.add(new Tesista("", "", "", "", ""));
+                }
+
+                // Define el adaptador del RecyclerView.
+                mAdapter = new TesistaAdapter(getContext(), salas, mListener);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG, "Error " + error.getMessage());
+                mBanner.setText(R.string.volley_error_conexion);
+            }
+        });
+        queue.add(stringRequest);
+    }
+
+    // Generar URL para la Query
+    private String obtenerURL(String a, String b) {
+        return getString(R.string.tes_url) + "/" + a + "/" + b + "/";
+    }
+
+    // Obtener fecha en formato valido para la URL
+    private String fechaURL(int year, int month, int day) {
+        month++;
+        return Integer.toString(year) + String.format("%02d", month) + String.format("%02d", day);
+    }
+
+    // Abre el calendario para seleccionar una fecha.
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
     }
 
     /**
