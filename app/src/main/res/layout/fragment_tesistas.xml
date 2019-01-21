@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerSala"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorTory"
+            android:spinnerMode="dialog" />
+
+        <Button
+            android:id="@+id/btnFecha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorTory"
+            android:text="@string/tes_btn_fecha"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorTextButton" />
+    </LinearLayout>
+
+    <!-- Incluir recyclerview -->
+    <include
+        android:id="@+id/rv"
+        layout="@layout/fragment_item_list" />
+
+</LinearLayout>

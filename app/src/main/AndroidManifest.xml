@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cl.sibucsc.sibucsc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <!-- Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:noHistory="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Main -->
+        <activity android:name=".MainActivity" />
+        <!-- Funcionalidades -->
+        <activity
+            android:name=".ExtravioActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PrestamoActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SancionesActivity"
+            android:parentActivityName=".MainActivity"></activity>
+    </application>
+
+</manifest>

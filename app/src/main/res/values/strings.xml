@@ -1,0 +1,54 @@
+<resources>
+    <!-- General -->
+    <string name="app_name">SIBUCSC</string>
+    <string name="btn_enviar">Enviar</string>
+    <string name="desc_logo">Logo UCSC</string>
+    <string name="menu_refresh">Actualizar</string>
+    <string name="text_loading">Cargando…</string>
+    <string name="toast_refresh">Actualizado</string>
+    <string name="toolbar_title">SIBUCSC Móvil</string>
+
+    <!-- Main -->
+    <string name="btn_perfil">Bienvenido\nPATERNO MATERNO, PRIMER SEGUNDO</string>
+    <string name="btn_laboratorio">Laboratorios</string>
+    <string name="btn_tesistas">Tesistas</string>
+    <string name="btn_notebooks">Notebooks</string>
+    <string name="btn_sanciones">Sanciones</string>
+    <string name="btn_extravio">Extravío</string>
+    <string name="btn_catalogo">Catálogo</string>
+    <string name="btn_logout">Cerrar sesión</string>
+    <string name="main_url">http://ucsc.cl</string>
+    <string name="main_toast">Abriendo UCSC…</string>
+
+    <!-- 2. Salas tesistas -->
+    <string name="tes_title">Salas de tesistas</string>
+    <string name="tes_url">http://dev.sibucsc.cl/usuarios/json_tesista</string>
+    <string name="tes_btn_sala">Sala</string>
+    <string name="tes_btn_fecha">Fecha</string>
+    <string name="tes_seleccion">Seleccione una sala y fecha.</string>
+
+    <!-- 3. Prestamo notebook -->
+    <string name="not_title">Prestamo de notebooks</string>
+    <string name="not_url">http://dev.sibucsc.cl/usuarios/json_notebook/</string>
+
+    <!-- 4. Sanciones alumnos -->
+    <string name="san_title">Estado de sanciones</string>
+
+    <!-- 5. Extravio carnet -->
+    <string name="ext_title">Extravío de credencial de biblioteca</string>
+    <string name="ext_subtitulo">Completa los siguientes campos.</string>
+    <string name="ext_rut">RUT</string>
+    <string name="ext_help_rut">RUT sin puntos ni guión, Ej. 12345678K</string>
+    <string name="ext_carrera">Carrera</string>
+    <string name="ext_email">Email</string>
+    <string name="ext_telefono">Teléfono</string>
+    <string name="ext_comentarios">Comentarios</string>
+    <string name="ext_mail_to">mveliz@ing.ucsc.cl</string>
+    <string name="ext_send_by">Enviar email via…</string>
+    <string name="ext_error">No existe aplicación de email instalada.</string>
+    <string name="ext_toast">Abriendo correo…</string>
+
+    <!-- 6. Abrir catálogo -->
+    <string name="catalogo_url">http://catalogo.ucsc.cl</string>
+    <string name="catalogo_toast">Abriendo catálogo…</string>
+</resources>
