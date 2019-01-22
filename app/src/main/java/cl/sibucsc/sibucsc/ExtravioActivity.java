@@ -21,6 +21,7 @@ public class ExtravioActivity extends AppCompatActivity {
 
     private static final String TAG = "ExtravioActividad";
     private int colorActividad = R.color.colorCrusta;
+    private static final String EMAIL_TO = "mveliz@ing.ucsc.cl";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class ExtravioActivity extends AppCompatActivity {
 
                 // Iniciar actividad
                 Intent mail = new Intent(Intent.ACTION_SEND);
-                String[] destino = {getResources().getString(R.string.ext_mail_to)};
+                String[] destino = {EMAIL_TO};
                 mail.putExtra(Intent.EXTRA_EMAIL, destino);
                 mail.putExtra(Intent.EXTRA_SUBJECT, "Extravio de carnet: " + rut);
                 mail.putExtra(Intent.EXTRA_TEXT, mensaje);

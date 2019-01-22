@@ -22,7 +22,7 @@
     <style name="ToolbarTitle">
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/colorTextTitle</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -45,6 +45,16 @@
         <item name="android:textSize">@dimen/font_tiny</item>
     </style>
 
+    <!--Boton iniciar sesion -->
+    <style name="ButtonLogin">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorTextButton</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!--Boton cerrar sesion -->
     <style name="ButtonLogout">
         <item name="android:backgroundTint">@color/colorPrimary</item>
@@ -62,7 +72,7 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
-    <!--Banner recyclerview-->
+    <!--Banner informativo -->
     <style name="TextViewInformacion">
         <item name="android:background">@color/colorSecondary</item>
         <item name="android:textSize">@dimen/font_normal</item>

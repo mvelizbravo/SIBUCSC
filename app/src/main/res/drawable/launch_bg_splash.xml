@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/launch_logo" />
+            android:src="@drawable/sibucsc_logo" />
     </item>
 </layer-list>

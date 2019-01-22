@@ -11,6 +11,7 @@
     <dimen name="spacing_large">32dp</dimen>
     <dimen name="spacing_huge">64dp</dimen>
     <dimen name="spacing_jumbo">95dp</dimen>
+    <dimen name="spacing_land">180dp</dimen>
 
     <!--tamaños de las fuentes-->
     <dimen name="font_tiny">12sp</dimen>
