@@ -22,6 +22,7 @@ public class PrestamoActivity extends AppCompatActivity
     private int mColor; // Color que tendra la toolbar del fragmento x
     private int mTitulo; // Titulo que tendra la toolbar del fragmento x
     private int mFragmento; // ID fragmento
+    private String mSede;    // Sede del alumno
     private Toolbar toolbar; // Toolbar
     private TextView titulo; // Titulo toolbar
 
@@ -44,6 +45,10 @@ public class PrestamoActivity extends AppCompatActivity
             mColor = bundle.getInt("color");
             mTitulo = bundle.getInt("titulo");
             mFragmento = bundle.getInt("fragmento");
+            if (bundle.containsKey("sede")) {
+                Log.d(TAG, "Se añadio la sede: " + mSede);
+                mSede = bundle.getString("sede");
+            }
             addFragment();
         }
     }
@@ -66,6 +71,9 @@ public class PrestamoActivity extends AppCompatActivity
             // Notebooks
             case 3:
                 fragment = NotebookFragment.newInstance(1);
+                Bundle bundle = new Bundle();
+                bundle.putString("sede", mSede);
+                fragment.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().add(R.id.prestamo, fragment).commit();
                 break;
             default:

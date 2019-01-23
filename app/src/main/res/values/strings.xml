@@ -13,7 +13,7 @@
     <!--Login-->
     <string name="login_hint">RUT</string>
     <string name="login_helper">Ingrese RUT sin puntos, ni digito verificador.</string>
-    <string name="btn_login">Ingresar</string>
+    <string name="login_btn">Ingresar</string>
 
     <!-- Main -->
     <string name="btn_perfil">Bienvenido\nPATERNO MATERNO, PRIMER SEGUNDO</string>
@@ -25,6 +25,9 @@
     <string name="btn_catalogo">Catálogo</string>
     <string name="btn_logout">Cerrar sesión</string>
     <string name="main_toast">Abriendo UCSC…</string>
+    <string name="logout_message">¿Está seguro que desea cerrar la sesión?</string>
+    <string name="logout_negative">No</string>
+    <string name="logout_positive">Si</string>
 
     <!-- 2. Salas tesistas -->
     <string name="tes_title">Salas de tesistas</string>
@@ -53,5 +56,5 @@
     <string name="ext_toast">Abriendo correo…</string>
 
     <!-- 6. Abrir catálogo -->
-    <string name="catalogo_toast">Abriendo catálogo…</string>
+    <string name="cat_toast">Abriendo catálogo…</string>
 </resources>

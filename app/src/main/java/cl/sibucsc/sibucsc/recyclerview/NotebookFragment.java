@@ -49,6 +49,7 @@ public class NotebookFragment extends Fragment {
 
     private static final String TAG = "NotebookPrestamo";
     private static final String URL_BASE = "http://dev.sibucsc.cl/usuarios/json_notebook/";
+    private String sedeAlumno;
 
     // Numero de columnas y valor por defecto
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -122,6 +123,7 @@ public class NotebookFragment extends Fragment {
         }
 
         // Obtener listado de items
+        sedeAlumno = getArguments().getString("sede").toLowerCase();
         requestJsonObject();
 
         // Permite actualizar el listado deslizando hacia arriba.
@@ -165,7 +167,7 @@ public class NotebookFragment extends Fragment {
     private void requestJsonObject() {
         // Iniciar REQUEST
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = URL_BASE;
+        String url = URL_BASE + sedeAlumno;
         Log.d(TAG, "Inicio de Query: " + url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

@@ -12,6 +12,9 @@ import java.util.Calendar;
 
 import cl.sibucsc.sibucsc.R;
 
+/**
+ * Fragmento para la seleccion de una fecha en un calendario.
+ */
 public class DatePickerFragment extends DialogFragment {
 
     DatePickerDialog.OnDateSetListener onDateSet;

@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import cl.sibucsc.sibucsc.common.LogoutDialogFragment;
 import cl.sibucsc.sibucsc.model.Alumno;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,14 +81,8 @@ public class MainActivity extends AppCompatActivity {
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Borrar preferencias y volver al login.
-                SharedPreferences pref = getSharedPreferences(PREF_NAME, getApplicationContext().MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.clear();
-                editor.commit();
-                Log.d(TAG, "Se ha cerrado sesion.");
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
+                LogoutDialogFragment dialogFragment = new LogoutDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(), "logout");
             }
         });
     }
@@ -108,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("color", R.color.colorButterfly);
         i.putExtra("titulo", R.string.not_title);
         i.putExtra("fragmento", 3);
+        i.putExtra("sede", mAlumno.getSede());
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: NOTEBOOKS");
     }
@@ -130,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* 6. Abrir Catalogo: Abre en el navegador la url definida en urlCatalogo. */
     public void abrirCatalogo(View view) {
-        Toast.makeText(this, R.string.catalogo_toast, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.cat_toast, Toast.LENGTH_SHORT).show();
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_CATALOGO));
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: CATALOGO");
@@ -142,5 +138,19 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_UCSC));
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: UCSC");
+    }
+
+    /**
+     * Funcion para cerrar sesion llamado por {@link LogoutDialogFragment}
+     */
+    public void cerrarSesion() {
+        // Borrar preferencias y volver al login.
+        SharedPreferences pref = getSharedPreferences(PREF_NAME, getApplicationContext().MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.commit();
+        Log.d(TAG, "Se ha cerrado sesion.");
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        finish();
     }
 }
