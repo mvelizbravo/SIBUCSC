@@ -24,7 +24,7 @@ import cl.sibucsc.sibucsc.model.Alumno;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "PrincipalActividad";
-    private static final String URL_UCSC = "http://ucsc.cl";
+    private static final String URL_SIBUCSC = "http://sibucsc.cl";
     private static final String URL_CATALOGO = "http://catalogo.ucsc.cl";
     public static final String PREF_NAME = "Principal";
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     /* 3. Prestamo de Notebooks. */
     public void notebookPrestamo(View view) {
         Intent i = new Intent(this, PrestamoActivity.class);
-        i.putExtra("color", R.color.colorButterfly);
+        i.putExtra("color", R.color.colorPine);
         i.putExtra("titulo", R.string.not_title);
         i.putExtra("fragmento", 3);
         i.putExtra("sede", mAlumno.getSede());
@@ -132,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Se inicio la actividad: CATALOGO");
     }
 
-    /* 7. Abrir UCSC: Abre en el navegador la url definida en urlCatalogo. */
-    public void abrirUCSC(View view) {
+    /* 7. Abrir SIBUCSC: Abre en el navegador la url definida en urlCatalogo. */
+    public void abrirSIBUCSC(View view) {
         Toast.makeText(this, R.string.main_toast, Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_UCSC));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URL_SIBUCSC));
         startActivity(i);
         Log.i(TAG, "Se inicio la actividad: UCSC");
     }
@@ -153,4 +153,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
         finish();
     }
+
+    // TODO: 24-01-19 AGREGAR SALUDO CUMPLEAÑOS / SANCION COMO DIALOGO Y FOTO GENERO
 }

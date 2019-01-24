@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cl.sibucsc.sibucsc.R;
-import cl.sibucsc.sibucsc.model.Notebook;
-import cl.sibucsc.sibucsc.recyclerview.NotebookFragment.NotebookListener;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import cl.sibucsc.sibucsc.R;
+import cl.sibucsc.sibucsc.model.Notebook;
+import cl.sibucsc.sibucsc.recyclerview.NotebookFragment.NotebookListener;
 
 /**
  * Este {@link RecyclerView.Adapter} provee vistas a un {@link RecyclerView} con
@@ -27,7 +27,7 @@ import java.util.List;
 public class NotebookAdapter extends RecyclerView.Adapter<NotebookAdapter.ViewHolder> {
 
     private static final String TAG = "NotebookAdaptador";
-    private int colorActividad = R.color.colorButterfly;
+    private int colorActividad = R.color.colorPine;
 
     private Context mContext; // Contexto desde el fragmento.
     private final List<Notebook> mValues; // ArrayList con notebooks.
@@ -114,7 +114,7 @@ public class NotebookAdapter extends RecyclerView.Adapter<NotebookAdapter.ViewHo
             if (estado.equals("Disponible")) {
                 descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorPine));
             } else {
-                descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorThunderbird));
+                descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorRossoCorsa));
             }
             // Listener onClick a la Vista.
             mView.setOnClickListener(new View.OnClickListener() {

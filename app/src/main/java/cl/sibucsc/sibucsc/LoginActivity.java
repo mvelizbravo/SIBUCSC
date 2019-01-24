@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import cl.sibucsc.sibucsc.common.LoadingDialog;
 import cl.sibucsc.sibucsc.model.Alumno;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mRut; // Campo para escribir el rut
     private Button mLogin; // Boton para inicio de sesion
     private Alumno mAlumno; // Alumno que sera enviado
+
+    private LoadingDialog dialog; // Mostrar dialogo de carga
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
+        dialog = new LoadingDialog(LoginActivity.this);
     }
 
     // Request datos alumno
@@ -95,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Respuesta: " + response);
+                dialog.cerrar();
 
                 // El usuario especificado no existe en Aleph
                 if (response.equals("[{\"Error\": \"El usuario especificado no existe en Aleph\"}]")) {
@@ -128,12 +133,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d(TAG, "Error: " + error.getMessage());
+                dialog.cerrar();
                 Toast.makeText(LoginActivity.this, "No es posible conectarse con el servidor.", Toast.LENGTH_SHORT).show();
             }
         });
 
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
+        dialog.mostrar();
     }
 
     // Realiza el cambio hacia el menu principal.

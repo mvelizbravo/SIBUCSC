@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -253,6 +254,7 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
                 if (response.equals("[[{\"Estado\": \"No se encontraron bloques para la fecha especificada\"}]]")) {
                     Log.d(TAG, "Se ha seleccionado un fin de semana.");
                     mBanner.setText(R.string.tes_error_fds);
+                    mBanner.setTextColor(ContextCompat.getColor(getContext(), R.color.colorRossoCorsa));
                     salas = new ArrayList<>();
                     salas.add(new Tesista("", "", "", "", ""));
                 }

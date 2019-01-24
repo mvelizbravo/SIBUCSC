@@ -130,7 +130,7 @@ public class TesistaAdapter extends RecyclerView.Adapter<TesistaAdapter.ViewHold
             } else if (estado.equals("Reservada")) {
                 descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorLochmara));
             } else {
-                descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorThunderbird));
+                descripcion.setTextColor(ContextCompat.getColor(context, R.color.colorRossoCorsa));
             }
             // Listener onClick a la Vista.
             mView.setOnClickListener(new View.OnClickListener() {

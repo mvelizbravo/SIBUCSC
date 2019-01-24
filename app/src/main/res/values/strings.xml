@@ -17,14 +17,14 @@
 
     <!-- Main -->
     <string name="btn_perfil">Bienvenido\nPATERNO MATERNO, PRIMER SEGUNDO</string>
-    <string name="btn_laboratorio">Laboratorios</string>
+    <string name="btn_juegos">Juegos de mesa</string>
     <string name="btn_tesistas">Tesistas</string>
     <string name="btn_notebooks">Notebooks</string>
-    <string name="btn_sanciones">Sanciones</string>
+    <string name="btn_sanciones">¿Estoy sancionado?</string>
     <string name="btn_extravio">Extravío</string>
     <string name="btn_catalogo">Catálogo</string>
     <string name="btn_logout">Cerrar sesión</string>
-    <string name="main_toast">Abriendo UCSC…</string>
+    <string name="main_toast">Abriendo SIBUCSC…</string>
     <string name="logout_message">¿Está seguro que desea cerrar la sesión?</string>
     <string name="logout_negative">No</string>
     <string name="logout_positive">Si</string>
