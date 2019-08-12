@@ -1,12 +1,13 @@
 package cl.sibucsc.sibucsc;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import cl.sibucsc.sibucsc.model.Notebook;
 import cl.sibucsc.sibucsc.model.Tesista;
@@ -32,8 +33,8 @@ public class PrestamoActivity extends AppCompatActivity
         setContentView(R.layout.activity_prestamo);
 
         // Toolbar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        titulo = (TextView) findViewById(R.id.toolbar_title);
+        toolbar = findViewById(R.id.toolbar);
+        titulo = findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

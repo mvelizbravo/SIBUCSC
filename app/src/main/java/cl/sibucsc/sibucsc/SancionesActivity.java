@@ -2,11 +2,12 @@ package cl.sibucsc.sibucsc;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,9 +27,9 @@ public class SancionesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sanciones);
 
         // Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(ContextCompat.getColor(this, colorActividad));
-        TextView titulo = (TextView) findViewById(R.id.toolbar_title);
+        TextView titulo = findViewById(R.id.toolbar_title);
         titulo.setText(R.string.san_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -36,8 +37,8 @@ public class SancionesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Sanciones
-        mEstado = (TextView) findViewById(R.id.estadoSancion);
-        mFecha = (TextView) findViewById(R.id.fechaSancion);
+        mEstado = findViewById(R.id.estadoSancion);
+        mFecha = findViewById(R.id.fechaSancion);
 
         Intent intent = getIntent();
         String estado = intent.getStringExtra("estado");

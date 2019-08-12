@@ -1,14 +1,15 @@
 package cl.sibucsc.sibucsc.recyclerview;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,10 +104,10 @@ public class TesistaAdapter extends RecyclerView.Adapter<TesistaAdapter.ViewHold
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            imagen = (ImageView) itemView.findViewById(R.id.referencia);
-            titulo = (TextView) itemView.findViewById(R.id.titulo);
-            subtitulo = (TextView) itemView.findViewById(R.id.subtitulo);
-            descripcion = (TextView) itemView.findViewById(R.id.estado);
+            imagen = itemView.findViewById(R.id.referencia);
+            titulo = itemView.findViewById(R.id.titulo);
+            subtitulo = itemView.findViewById(R.id.subtitulo);
+            descripcion = itemView.findViewById(R.id.estado);
             mostrarFecha = true;
         }
 

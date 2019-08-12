@@ -3,13 +3,6 @@ package cl.sibucsc.sibucsc.recyclerview;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,6 +17,14 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -142,11 +143,11 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
         final Context context = view.getContext();
 
         // Inicializar fragmento.
-        mSala = (Spinner) view.findViewById(R.id.spinnerSala);
-        mFecha = (Button) view.findViewById(R.id.btnFecha);
-        mBanner = (TextView) view.findViewById(R.id.informacion);
+        mSala = view.findViewById(R.id.spinnerSala);
+        mFecha = view.findViewById(R.id.btnFecha);
+        mBanner = view.findViewById(R.id.informacion);
         mBanner.setText(R.string.tes_seleccion);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.list);
+        mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(context));
         if (mColumnCount <= 1) {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -175,7 +176,7 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
         b = fechaURL(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
 
         // Permite actualizar el listado deslizando hacia arriba.
-        mSwipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.swipeOnRefreshLayout);
+        mSwipeRefresh = view.findViewById(R.id.swipeOnRefreshLayout);
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -281,7 +282,7 @@ public class TesistaFragment extends Fragment implements AdapterView.OnItemSelec
     // Obtener fecha en formato valido para la URL
     private String fechaURL(int year, int month, int day) {
         month++;
-        return Integer.toString(year) + String.format("%02d", month) + String.format("%02d", day);
+        return year + String.format("%02d", month) + String.format("%02d", day);
     }
 
     // Abre el calendario para seleccionar una fecha.

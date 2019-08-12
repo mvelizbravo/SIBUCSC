@@ -3,9 +3,6 @@ package cl.sibucsc.sibucsc;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,12 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -34,7 +35,7 @@ import cl.sibucsc.sibucsc.model.Alumno;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActividad";
-    private static final String URL_BASE = "http://dev.sibucsc.cl/usuarios/json_appusuario";
+    private static final String URL_BASE = "http://dev.sibucsc.cl/common/json_appusuario";
     public static final String EXTRA_MESSAGE = "ALUMNO";
 
     private TextInputLayout mLayout; // Layout para poner errores
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Detectar enter en el campo
-        mRut = (EditText) findViewById(R.id.editRutLogin);
+        mRut = findViewById(R.id.editRutLogin);
         mRut.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Boton inicio de sesion
-        mLogin = (Button) findViewById(R.id.buttonLogin);
+        mLogin = findViewById(R.id.buttonLogin);
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

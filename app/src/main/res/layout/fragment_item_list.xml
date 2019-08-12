@@ -13,20 +13,20 @@
         android:layout_height="wrap_content"
         android:text="@string/text_loading" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeOnRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
             android:name="cl.sibucsc.fragmento.NotebookFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:context=".NotebookFragment"
             tools:listitem="@layout/view_item_list">
 
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

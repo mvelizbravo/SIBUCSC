@@ -5,15 +5,16 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
@@ -29,9 +30,9 @@ public class ExtravioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_extravio);
 
         // Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(ContextCompat.getColor(this, colorActividad));
-        TextView titulo = (TextView) findViewById(R.id.toolbar_title);
+        TextView titulo = findViewById(R.id.toolbar_title);
         titulo.setText(R.string.ext_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -40,7 +41,7 @@ public class ExtravioActivity extends AppCompatActivity {
 
         // Boton envio de formulario
         // TODO: 21-01-19 Validaciones formulario
-        ((Button) findViewById(R.id.btnEnviar)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnEnviar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Obtener campos

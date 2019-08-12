@@ -2,11 +2,6 @@ package cl.sibucsc.sibucsc.recyclerview;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -113,8 +114,8 @@ public class NotebookFragment extends Fragment {
         final Context context = view.getContext();
 
         // Inicializar fragmento.
-        mBanner = (TextView) view.findViewById(R.id.informacion);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.list);
+        mBanner = view.findViewById(R.id.informacion);
+        mRecyclerView = view.findViewById(R.id.list);
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(context));
         if (mColumnCount <= 1) {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -127,7 +128,7 @@ public class NotebookFragment extends Fragment {
         requestJsonObject();
 
         // Permite actualizar el listado deslizando hacia arriba.
-        mSwipeRefresh = (SwipeRefreshLayout) view.findViewById(R.id.swipeOnRefreshLayout);
+        mSwipeRefresh = view.findViewById(R.id.swipeOnRefreshLayout);
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -226,9 +227,9 @@ public class NotebookFragment extends Fragment {
     private void actualizarContador() {
         int total = mAdapter.getItemCount();
         int disponibles = mAdapter.getItemDisponibles();
-        Log.d(TAG, "Disponibles: " + Integer.toString(disponibles) + " / " + Integer.toString(total));
+        Log.d(TAG, "Disponibles: " + disponibles + " / " + total);
         if (disponibles != 0) {
-            mBanner.setText("Disponibles: " + Integer.toString(disponibles) + " / " + Integer.toString(total));
+            mBanner.setText("Disponibles: " + disponibles + " / " + total);
         } else {
             mBanner.setText("No hay notebooks disponibles.");
         }

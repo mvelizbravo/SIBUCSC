@@ -5,8 +5,6 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.StyleSpan;
@@ -15,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.gson.Gson;
 
@@ -39,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView titulo = (TextView) findViewById(R.id.toolbar_title);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView titulo = findViewById(R.id.toolbar_title);
         titulo.setAllCaps(false);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -70,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Alumno: " + mAlumno.toString());
 
         // Boton mostrar datos alumno, nombre en negrita
-        mPerfil = (Button) findViewById(R.id.btnPerfil);
+        mPerfil = findViewById(R.id.btnPerfil);
         SpannableStringBuilder builder = new SpannableStringBuilder("Bienvenido\n" + mAlumno.getNombre());
         StyleSpan boldStyle = new StyleSpan(Typeface.BOLD);
         builder.setSpan(boldStyle, 10, builder.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         mPerfil.setText(builder);
 
         // Boton cerrar sesion
-        mLogout = (Button) findViewById(R.id.btnLogout);
+        mLogout = findViewById(R.id.btnLogout);
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
